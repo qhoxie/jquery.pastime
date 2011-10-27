@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>demo</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+    <script src="jquery.pastime.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('.pastime:first').data('pastime', new Date());
+            $('[data-pastime], .pastime').pastime({
+              interval: 5
+            }).bind('pastime.updated', function() {
+              $(this).effect('highlight', {}, 3000);
+            });
+        });
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <h1>Pastime</h1>
+        <h2>Live-updating timespans using unobtrusive JavaScript.</h2>
+      </div>
+
+      <div id="content">
+        <div class="section examples">
+          <h4 class="note">These will update automatically</h4>
+          <h3>Examples</h3>
+          <span class="pastime"></span><br />
+          <span data-pastime="Thu Oct 20 23:40:04 -0700 2011"></span><br />
+          <span class="pastime">Thu Oct 20 23:30:04 -0700 1700</span><br />
+          <span class="pastime">10/16/2010 1:15</span><br />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
